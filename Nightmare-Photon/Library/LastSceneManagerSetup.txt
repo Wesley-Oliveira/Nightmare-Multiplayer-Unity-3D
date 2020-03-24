@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/_Complete-Game/_Complete-Game-PvP.unity
+  isLoaded: 1
+  isActive: 1
