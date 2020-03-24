@@ -3,15 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
+
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class NetworkController : MonoBehaviourPunCallbacks {
 
     public Lobby lobbyScript;
     public byte playerRoomMax = 2;
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        CountdownTimer.OnCountdownTimerHasExpired += OnCountDownTimeIsExpired;
+    }
+
     void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        CountdownTimer.OnCountdownTimerHasExpired -= OnCountDownTimeIsExpired;
+    }
+
+    void OnCountDownTimeIsExpired()
+    {
+        StartGame();
     }
 
     public override void OnConnected()
@@ -64,7 +84,12 @@ public class NetworkController : MonoBehaviourPunCallbacks {
             {
                 if (itemm.IsMasterClient)
                 {
-                    StartGame();
+                    Hashtable props = new Hashtable
+                    {
+                        {CountdownTimer.CountdownStartTime, (float) PhotonNetwork.Time}
+                    };
+
+                    PhotonNetwork.CurrentRoom.SetCustomProperties(props);
                 }
             }
         }
@@ -72,7 +97,6 @@ public class NetworkController : MonoBehaviourPunCallbacks {
 
     void StartGame()
     {
-
         PhotonNetwork.LoadLevel(1);
     }
 
