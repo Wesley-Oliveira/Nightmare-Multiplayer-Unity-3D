@@ -15,7 +15,6 @@ public class Lobby : MonoBehaviour {
 
     public InputField playerInputField;
     public string playerName;
-    public string lobbyTimeStartText = "Start Game in {0}...";
 
 	void Start ()
     {

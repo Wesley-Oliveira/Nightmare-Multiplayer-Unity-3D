@@ -279,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &329377714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -672,12 +672,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -950,7 +950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &940016176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1541,7 +1541,6 @@ MonoBehaviour:
   playerStatus: {fileID: 1799416795}
   playerInputField: {fileID: 921259305}
   playerName: 
-  lobbyTimeStartText: Start Game in {0}...
 --- !u!1 &2133915406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2133915407
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1574,7 +1573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010000001, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 97}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133915408
@@ -1626,6 +1625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143429614}
   - component: {fileID: 2143429615}
+  - component: {fileID: 2143429616}
   m_Layer: 0
   m_Name: NetworkController
   m_TagString: Untagged
@@ -1658,3 +1658,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lobbyScript: {fileID: 2018131318}
+  playerRoomMax: 2
+--- !u!114 &2143429616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143429613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc398cf76e6d458caf303b5fceea504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 2133915408}
+  Countdown: 10

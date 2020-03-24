@@ -6,6 +6,7 @@ using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using ExitGames.Client.Photon;
 
 public class NetworkController : MonoBehaviourPunCallbacks {
 
@@ -80,9 +81,9 @@ public class NetworkController : MonoBehaviourPunCallbacks {
 
         if (PhotonNetwork.CurrentRoom.PlayerCount == playerRoomMax)
         {
-            foreach(var itemm in PhotonNetwork.PlayerList)
+            foreach(var item in PhotonNetwork.PlayerList)
             {
-                if (itemm.IsMasterClient)
+                if (item.IsMasterClient)
                 {
                     Hashtable props = new Hashtable
                     {
@@ -92,6 +93,14 @@ public class NetworkController : MonoBehaviourPunCallbacks {
                     PhotonNetwork.CurrentRoom.SetCustomProperties(props);
                 }
             }
+        }
+    }
+
+    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    {
+        if (propertiesThatChanged.ContainsKey(CountdownTimer.CountdownStartTime))
+        {
+            lobbyScript.lobbyTimeStart.gameObject.SetActive(true);
         }
     }
 
