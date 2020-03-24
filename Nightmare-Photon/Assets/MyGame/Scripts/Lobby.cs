@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class Lobby : MonoBehaviour {
 
@@ -10,13 +11,20 @@ public class Lobby : MonoBehaviour {
 
     public Text lobbyWait;
     public Text lobbyTimeStart;
+    public Text playerStatus;
 
+    public InputField playerInputField;
+    public string playerName;
     public string lobbyTimeStartText = "Start Game in {0}...";
 
-	public void Start ()
+	void Start ()
     {
         lobbyTimeStart.gameObject.SetActive(false);
+        playerStatus.gameObject.SetActive(false);
         PanelLoginActive();
+
+        playerName = "Player" + Random.Range(1000, 10000);
+        playerInputField.text = playerName;
 	}
 
     public void PanelLobbyActive()
