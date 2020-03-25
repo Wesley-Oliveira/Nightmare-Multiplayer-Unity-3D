@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 namespace CompleteProject
 {
@@ -23,6 +24,9 @@ namespace CompleteProject
         bool isDead;                                                // Whether the player is dead.
         bool damaged;                                               // True when the player gets damaged.
 
+        //### Multiplayer
+        public ParticleSystem hitParticles;                // Reference to the particle system that plays when the enemy is damaged.
+        PhotonView photonView;
 
         void Awake ()
         {
@@ -34,11 +38,19 @@ namespace CompleteProject
 
             // Set the initial health of the player.
             currentHealth = startingHealth;
+
+            //hitParticles = GetComponentInChildren<ParticleSystem>(); //###Meu
+            photonView = GetComponent<PhotonView>();
         }
 
 
         void Update ()
         {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
             // If the player has just been damaged...
             if(damaged)
             {
@@ -57,8 +69,20 @@ namespace CompleteProject
         }
 
 
-        public void TakeDamage (int amount)
+        public void TakeDamage (int amount, Vector3 hitPoint)
         {
+            photonView.RPC("TakeDamageNetwork", RpcTarget.All, amount, hitPoint);
+        }
+
+        [PunRPC]
+        public void TakeDamageNetwork(int amount, Vector3 hitPoint)
+        {
+            // Set the position of the particle system to where the hit was sustained.
+            hitParticles.transform.position = hitPoint; //##MEU
+
+            // And play the particles.
+            hitParticles.Play(); //##Meu
+
             // Set the damaged flag so the screen will flash.
             damaged = true;
 
@@ -69,16 +93,15 @@ namespace CompleteProject
             healthSlider.value = currentHealth;
 
             // Play the hurt sound effect.
-            playerAudio.Play ();
+            playerAudio.Play();
 
             // If the player has lost all it's health and the death flag hasn't been set yet...
-            if(currentHealth <= 0 && !isDead)
+            if (currentHealth <= 0 && !isDead)
             {
                 // ... it should die.
-                Death ();
+                //Death();
             }
         }
-
 
         void Death ()
         {

@@ -34,5 +34,6 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - ShootEffectNetwork
+  - TakeDamageNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
