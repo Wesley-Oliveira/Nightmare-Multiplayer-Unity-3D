@@ -100,7 +100,7 @@ namespace CompleteProject
             {
                 PlayerHealth playerHealth = shootHit.collider.GetComponent <PlayerHealth> ();
 
-                if(playerHealth != null)
+                if(playerHealth != null && photonView.IsMine)
                 {
                     playerHealth.TakeDamage (damagePerShot, shootHit.point);
                 }

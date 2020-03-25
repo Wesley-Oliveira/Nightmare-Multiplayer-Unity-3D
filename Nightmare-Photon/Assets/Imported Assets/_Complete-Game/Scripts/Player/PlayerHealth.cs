@@ -28,6 +28,8 @@ namespace CompleteProject
         public ParticleSystem hitParticles;                // Reference to the particle system that plays when the enemy is damaged.
         PhotonView photonView;
 
+        public GameObject canvasHUD;
+
         void Awake ()
         {
             // Setting up the references.
@@ -41,6 +43,11 @@ namespace CompleteProject
 
             //hitParticles = GetComponentInChildren<ParticleSystem>(); //###Meu
             photonView = GetComponent<PhotonView>();
+
+            if (!photonView.IsMine)
+            {
+                canvasHUD.SetActive(false);
+            }
         }
 
 

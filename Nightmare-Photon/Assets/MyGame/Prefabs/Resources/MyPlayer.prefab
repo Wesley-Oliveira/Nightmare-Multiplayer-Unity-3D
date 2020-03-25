@@ -1178,6 +1178,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.09803922}
   hitParticles: {fileID: 198962897427239500}
+  canvasHUD: {fileID: 1050530405030846}
 --- !u!114 &114859298660153754
 MonoBehaviour:
   m_ObjectHideFlags: 1
