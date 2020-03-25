@@ -2080,12 +2080,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114472224119873040, guid: b133e3900a3f59644880bba944eae454,
+    - target: {fileID: 114829082904259722, guid: b133e3900a3f59644880bba944eae454,
         type: 2}
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114829082904259722, guid: b133e3900a3f59644880bba944eae454,
+    - target: {fileID: 114472224119873040, guid: b133e3900a3f59644880bba944eae454,
         type: 2}
       propertyPath: viewIdField
       value: 1

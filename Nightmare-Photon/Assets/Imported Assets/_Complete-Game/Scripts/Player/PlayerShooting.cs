@@ -101,8 +101,8 @@ namespace CompleteProject
                 PlayerHealth playerHealth = shootHit.collider.GetComponent <PlayerHealth> ();
 
                 if(playerHealth != null && photonView.IsMine)
-                {
-                    playerHealth.TakeDamage (damagePerShot, shootHit.point);
+                {                  
+                    playerHealth.TakeDamage(damagePerShot, shootHit.point, photonView.Owner);
                 }
 
                 // Set the second position of the line renderer to the point the raycast hit.
