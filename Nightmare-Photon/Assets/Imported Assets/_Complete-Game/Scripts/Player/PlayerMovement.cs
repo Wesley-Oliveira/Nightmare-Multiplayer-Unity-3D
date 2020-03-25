@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
+using Photon.Pun; // ## Multiplayer
 
 namespace CompleteProject
 {
@@ -11,6 +12,9 @@ namespace CompleteProject
         Vector3 movement;                   // The vector to store the direction of the player's movement.
         Animator anim;                      // Reference to the animator component.
         Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
+
+        PhotonView photonView; // ## Multiplayer
+
 #if !MOBILE_INPUT
         int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
         float camRayLength = 100f;          // The length of the ray from the camera into the scene.
@@ -26,11 +30,19 @@ namespace CompleteProject
             // Set up references.
             anim = GetComponent <Animator> ();
             playerRigidbody = GetComponent <Rigidbody> ();
+            photonView = GetComponent<PhotonView>(); // ## Multiplayer
         }
 
 
         void FixedUpdate ()
         {
+
+            // ## Multiplayer
+            if (! photonView.IsMine)
+            {
+                return;
+            }
+
             // Store the input axes.
             float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
