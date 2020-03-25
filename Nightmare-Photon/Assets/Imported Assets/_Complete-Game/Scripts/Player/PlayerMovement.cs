@@ -14,6 +14,7 @@ namespace CompleteProject
         Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 
         PhotonView photonView; // ## Multiplayer
+        public GameObject myCamera; // ## Multiplayer
 
 #if !MOBILE_INPUT
         int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
@@ -30,7 +31,10 @@ namespace CompleteProject
             // Set up references.
             anim = GetComponent <Animator> ();
             playerRigidbody = GetComponent <Rigidbody> ();
+
             photonView = GetComponent<PhotonView>(); // ## Multiplayer
+            myCamera = Instantiate(myCamera) as GameObject; // ## Multiplayer
+            myCamera.GetComponent<FollowTarget>().target = this.gameObject.transform; // ## Multiplayer
         }
 
 
@@ -40,6 +44,7 @@ namespace CompleteProject
             // ## Multiplayer
             if (! photonView.IsMine)
             {
+                myCamera.gameObject.SetActive(false);
                 return;
             }
 

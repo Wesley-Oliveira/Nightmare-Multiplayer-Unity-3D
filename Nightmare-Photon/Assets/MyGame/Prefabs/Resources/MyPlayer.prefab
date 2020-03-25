@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  myCamera: {fileID: 1336555046112568, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
 --- !u!120 &120966199473841208
 LineRenderer:
   m_ObjectHideFlags: 1

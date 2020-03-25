@@ -106,7 +106,7 @@ public class NetworkController : MonoBehaviourPunCallbacks {
 
     void StartGame()
     {
-        PhotonNetwork.LoadLevel(1);
+        PhotonNetwork.LoadLevel("_Complete-Game-PvP");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
