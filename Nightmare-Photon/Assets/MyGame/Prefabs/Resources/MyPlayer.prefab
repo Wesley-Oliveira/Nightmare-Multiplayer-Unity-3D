@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 120966199473841208}
   - component: {fileID: 114142888821801798}
   - component: {fileID: 108175626966140020}
+  - component: {fileID: 114829082904259722}
   m_Layer: 0
   m_Name: GunBarrelEnd
   m_TagString: Untagged
@@ -1105,6 +1106,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f43bf66218c874d871d02802b6a2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114829082904259722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472489864126524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &114855792171739382
 MonoBehaviour:
   m_ObjectHideFlags: 1
