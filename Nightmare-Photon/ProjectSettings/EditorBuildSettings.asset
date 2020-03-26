@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/MyGame/Scenes/Lobby.unity
     guid: ccd505384b82271458b33ecb4404b07d
   - enabled: 1
-    path: Assets/Imported Assets/_Complete-Game/_Complete-Game-PvP.unity
+    path: Assets/MyGame/Scenes/_Complete-Game-PvP.unity
     guid: 874e24e631d7345b0a29cc297bedb405
   m_configObjects: {}
