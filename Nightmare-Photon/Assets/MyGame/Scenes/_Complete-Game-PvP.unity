@@ -320,11 +320,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4272885119071754, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4272885119071754, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4272885119071754, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
       propertyPath: m_LocalRotation.x
@@ -345,6 +345,10 @@ Prefab:
     - target: {fileID: 4272885119071754, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336555046112568, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56b9346f59dcfbe4f901fa6ab3679905, type: 2}
@@ -2081,7 +2085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.784}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3015,15 +3019,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114829082904259722, guid: b133e3900a3f59644880bba944eae454,
-        type: 2}
-      propertyPath: viewIdField
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114472224119873040, guid: b133e3900a3f59644880bba944eae454,
         type: 2}
       propertyPath: viewIdField
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114829082904259722, guid: b133e3900a3f59644880bba944eae454,
+        type: 2}
+      propertyPath: viewIdField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1108934844922150, guid: b133e3900a3f59644880bba944eae454, type: 2}
       propertyPath: m_IsActive

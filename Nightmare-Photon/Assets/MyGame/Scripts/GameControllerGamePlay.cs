@@ -11,6 +11,15 @@ public class GameControllerGamePlay : MonoBehaviourPunCallbacks {
     private void Start()
     {
         int position = Random.Range(0, spawnPLayer.Length);
-        PhotonNetwork.Instantiate(myPlayer.name, spawnPLayer[position].position, spawnPLayer[position].rotation, 0);
+        GameObject playerTemp = PhotonNetwork.Instantiate(myPlayer.name, spawnPLayer[position].position, spawnPLayer[position].rotation, 0);
+
+        if (playerTemp.GetComponent<PhotonView>().Owner.IsMasterClient)
+        {
+            ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+            {
+                {CountDownEndGame.CountdownStartTime, (float) PhotonNetwork.Time}
+            };
+            PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+        }
     }
 }
