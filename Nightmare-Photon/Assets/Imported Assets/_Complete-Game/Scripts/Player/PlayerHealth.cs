@@ -58,7 +58,7 @@ namespace CompleteProject
             }
 
 
-            //Iniciando countdownendgame
+            //Iniciando CountDownEndGame
             //if (photonView.Owner.IsMasterClient)
             //{
                 foreach (var item in PhotonNetwork.PlayerList)
