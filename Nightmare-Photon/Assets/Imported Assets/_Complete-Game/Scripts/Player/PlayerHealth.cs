@@ -59,8 +59,8 @@ namespace CompleteProject
 
 
             //Iniciando CountDownEndGame
-            //if (photonView.Owner.IsMasterClient)
-            //{
+            if (photonView.Owner.IsMasterClient)
+            {
                 foreach (var item in PhotonNetwork.PlayerList)
                 {
                     if (item.IsMasterClient)
@@ -73,7 +73,7 @@ namespace CompleteProject
                         PhotonNetwork.CurrentRoom.SetCustomProperties(props);
                     }
                 }
-            //}
+            }
         }
 
 
