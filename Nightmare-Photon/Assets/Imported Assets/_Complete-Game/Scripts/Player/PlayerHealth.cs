@@ -56,6 +56,24 @@ namespace CompleteProject
             {
                 canvasHUD.SetActive(false);
             }
+
+
+            //Iniciando countdownendgame
+            //if (photonView.Owner.IsMasterClient)
+            //{
+                foreach (var item in PhotonNetwork.PlayerList)
+                {
+                    if (item.IsMasterClient)
+                    {
+                        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+                        {
+                            {CountDownEndGame.CountdownStartTime, (float) PhotonNetwork.Time}
+                        };
+
+                        PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+                    }
+                }
+            //}
         }
 
 
